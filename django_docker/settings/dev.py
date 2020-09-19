@@ -1,8 +1,5 @@
 from .base import *  # noqa
 
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, 'config/envs/.env.dev'))
-
 DEBUG = True
 
 DATABASES = {

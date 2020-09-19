@@ -12,8 +12,6 @@ services:
       - media:/home/app/web/media
     ports:
       - 8000
-    env_file:
-      - config/envs/.env.prod
     entrypoint:
       - sh
       - entrypoint.prod.sh
