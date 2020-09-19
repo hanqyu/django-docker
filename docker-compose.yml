@@ -16,7 +16,6 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     restart: always
-    #    command: uwsgi --ini uwsgi.ini
     ports:
       - "8000:8000"
     volumes:
@@ -26,34 +25,6 @@ services:
     entrypoint:
       - sh
       - /app/config/docker/entrypoint.sh
-
-    #  nginx:
-    #    container_name: nginx-container
-    #    build: ./nginx
-    #    restart: always
-    #    ports:
-    #      - "80:80"
-    #    volumes:
-    #      - app_data:/docker_app
-    #      - ./log:/var/log/nginx
-    #    depends_on:
-    #      - app
-
-    #   auto migrate django
-#  migration:
-#    build: ./app
-#    command:
-#      - /bin/sh
-#      - -c
-#      - |
-#        python manage.py collectstatic --noinput
-#        python manage.py migrate
-#        python manage.py makemigrations musics
-#        python manage.py migrate
-#    volumes:
-#      - app_data:/docker_app
-#    depends_on:
-#      - db
 
 volumes:
   app:
