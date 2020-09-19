@@ -23,6 +23,9 @@ services:
       - .:/app
     depends_on:
       - db
+    entrypoint:
+      - sh
+      - /app/config/docker/entrypoint.sh
 
     #  nginx:
     #    container_name: nginx-container
