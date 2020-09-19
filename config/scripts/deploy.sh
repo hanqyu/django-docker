@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installing docker engine if not exists
-if ! docker -v COMMAND &> /dev/null
+if ! type docker > /dev/null
 then
   echo "docker does not exist"
   echo "Start installing docker"
@@ -15,7 +15,7 @@ then
 fi
 
 # Installing docker-compose if not exists
-if ! docker-compose -v COMMAND &> /dev/null
+if ! type docker-compose > /dev/null
 then
   echo "docker-compose does not exist"
   echo "Start installing docker-compose"

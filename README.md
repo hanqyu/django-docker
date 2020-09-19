@@ -31,6 +31,7 @@ django를 Docker & Github Action으로 배포해봅시다.
     - HOST: 배포할 remote 서버 host
     - USERNAME: 배포할 remote 서버의 username _ex) ubuntu_
     - KEY: 배포할 remote 서버로 접근 가능한 ssh key 전문
+3. `sudo sh /home/ubuntu/srv/django-docker/config/scripts/deploy.sh` 가 실행되고 서버 실행 완료
 
 - 소스는 ec2 ubuntu 기준 /home/{username}/srv/django-docker로 배포됩니다
 
