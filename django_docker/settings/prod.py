@@ -1,9 +1,9 @@
 from .base import *  # noqa
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, 'config/envs/.env.dev'))
+environ.Env.read_env(os.path.join(BASE_DIR, 'config/envs/.env.prod'))
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
 DATABASES = {
@@ -12,7 +12,7 @@ DATABASES = {
         'NAME': env('POSTGRES_DB'),
         'USER': env('POSTGRES_USER'),
         'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'HOST': env('POSTGRES_HOST'),
         'PORT': 5432,
     }
 }

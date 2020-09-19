@@ -11,8 +11,8 @@ services:
     env_file:
       - config/envs/.env
 
-  app:
-    container_name: app-container
+  web:
+    container_name: web
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     restart: always
