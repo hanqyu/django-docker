@@ -38,3 +38,5 @@ django를 Docker & Github Action으로 배포해봅시다.
 https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
 https://github.com/appleboy/ssh-action
 https://github.com/marketplace/actions/rsync-deployments-action
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+https://docs.docker.com/compose/install/
