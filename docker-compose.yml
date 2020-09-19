@@ -6,35 +6,35 @@ services:
     image: postgres
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data/
-#
-#  nginx:
-#    container_name: nginx-container
-#    build: ./nginx
-#    restart: always
-#    ports:
-#      - "80:80"
-#    volumes:
-#      - app_data:/docker_app
-#      - ./log:/var/log/nginx
-#    depends_on:
-#      - app
+    env_file:
+      - config/envs/.env
 
   app:
     container_name: app-container
     build: .
-    command: python manage.py runserver 127.0.0.1:8000
+    command: python manage.py runserver 0.0.0.0:8000
     restart: always
-#    command: uwsgi --ini uwsgi.ini
+    #    command: uwsgi --ini uwsgi.ini
     ports:
       - "8000:8000"
     volumes:
       - .:/app
     depends_on:
       - db
+
+    #  nginx:
+    #    container_name: nginx-container
+    #    build: ./nginx
+    #    restart: always
+    #    ports:
+    #      - "80:80"
+    #    volumes:
+    #      - app_data:/docker_app
+    #      - ./log:/var/log/nginx
+    #    depends_on:
+    #      - app
 
     #   auto migrate django
 #  migration:
