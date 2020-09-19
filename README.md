@@ -11,12 +11,13 @@
 - django(>=3.0)
 
 
-# Introduction
+# Docker
 ## development
 1. `docker-compose -f docker-compose.yml up --build`
 2. 127.0.0.1:8000 접속
 3. `docker-compose -f docker-compose.prod.yml down -v` 로 종료
-참고) [Pycharm docker-compose 설정](https://www.jetbrains.com/help/pycharm/docker-compose.html#working)
+
+- 참고) [Pycharm docker-compose 설정](https://www.jetbrains.com/help/pycharm/docker-compose.html#working)
 
 ## production
 1. `docker-compose -f docker-compose.prod.yml up --build`
