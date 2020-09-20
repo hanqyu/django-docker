@@ -19,7 +19,7 @@ django를 Docker & Github Action으로 배포해봅시다.
 
 - 참고) [Pycharm docker-compose 설정](https://www.jetbrains.com/help/pycharm/docker-compose.html#working)
 
-## production
+## production 테스트
 1. `docker-compose -f docker-compose.prod.yml up --build`
 2. 127.0.0.1 접속
 3. `docker-compose -f docker-compose.prod.yml down -v` 로 종료
@@ -31,9 +31,9 @@ django를 Docker & Github Action으로 배포해봅시다.
     - HOST: 배포할 remote 서버 host
     - USERNAME: 배포할 remote 서버의 username _ex) ubuntu_
     - KEY: 배포할 remote 서버로 접근 가능한 ssh key 전문
-3. `sudo sh /home/ubuntu/srv/django-docker/config/scripts/deploy.sh` 가 실행되고 서버 실행 완료
+3. `sudo sh /home/ubuntu/srv/config/scripts/deploy.sh` 가 실행되고 서버 실행 완료
 
-- 소스는 ec2 ubuntu 기준 /home/{username}/srv/django-docker로 배포됩니다
+- 소스는 ec2 ubuntu 기준 /home/{username}/srv/로 배포됩니다
 
 # Reference
 https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/ \

@@ -23,4 +23,4 @@ then
   sudo chmod +x /usr/local/bin/docker-compose
 fi
 
-cd ~/srv/django-docker/ && sudo docker-compose -f docker-compose.prod.yml up --build -d
+cd ~/srv/ && sudo docker-compose -f docker-compose.prod.yml up --build -d

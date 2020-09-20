@@ -20,13 +20,13 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        script: "mkdir -p ~/srv/django-docker"
+        script: "mkdir -p ~/srv"
 
     - name: copy source via ssh key
       uses: burnett01/rsync-deployments@4.1
       with:
         switches: -avzr --delete
-        remote_path: /home/ubuntu/srv/django-docker/
+        remote_path: /home/ubuntu/srv/
         remote_host: ${{ secrets.HOST }}
         remote_user: ${{ secrets.USERNAME }}
         remote_key: ${{ secrets.KEY }}
@@ -37,4 +37,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        script: "sudo sh /home/ubuntu/srv/django-docker/config/scripts/deploy.sh"
+        script: "sudo sh /home/ubuntu/srv/config/scripts/deploy.sh"
