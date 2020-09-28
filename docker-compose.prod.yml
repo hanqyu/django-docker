@@ -30,6 +30,5 @@ services:
       - web
 
 volumes:
-  pgdata:
   static:
   media:
