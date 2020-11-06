@@ -14,7 +14,6 @@ class AccessHistoryAPIView(ListView, DeletionMixin):
         lower_cased = {key.lower(): value
                        for key, value in request.META.items()
                        if key.lower() in allowed_fields}
-        print(lower_cased)
         AccessHistory.objects.get_or_create(**lower_cased)
         return super(AccessHistoryAPIView, self).get(request, *args, **kwargs)
 
