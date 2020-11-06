@@ -4,6 +4,14 @@
 
 <h1><strong>접속 리스트</strong></h1>
 
+<form action="#" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="put" />
+    <button class="submit-row float-right">
+        <a class="deletelink">삭제</a>
+    </button>
+</form>
+
 {% if object_list %}
 <table>
     <thead>
@@ -23,7 +31,7 @@
         <td>{{record.id}}</td>
         <td>{{record.http_host}}</td>
         <td>{{record.http_referrer}}</td>
-        <td>{{record.http_useragent}}</td>
+        <td>{{record.http_user_agent}}</td>
         <td>{{record.remote_addr}}</td>
         <td>{{record.remote_host}}</td>
         <td>{{record.remote_user}}</td>

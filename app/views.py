@@ -1,9 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView
+from django.views.generic.edit import DeletionMixin
 
 from app.models import AccessHistory
 
 
-class AccessHistoryAPIView(ListView):
+class AccessHistoryAPIView(ListView, DeletionMixin):
     model = AccessHistory
     template_name = 'accesshistory_list.html'
 
@@ -12,5 +14,10 @@ class AccessHistoryAPIView(ListView):
         lower_cased = {key.lower(): value
                        for key, value in request.META.items()
                        if key.lower() in allowed_fields}
+        print(lower_cased)
         AccessHistory.objects.get_or_create(**lower_cased)
         return super(AccessHistoryAPIView, self).get(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        AccessHistory.objects.all().delete()
+        return HttpResponseRedirect('/')
