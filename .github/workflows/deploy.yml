@@ -39,4 +39,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ubuntu
         key: ${{ secrets.KEY }}
-        script: "sudo sh /home/ubuntu/srv/$DEPLOY_USERNAME/config/scripts/deploy.sh"
+        script: sudo sh /home/ubuntu/srv/${{ secrets.DEPLOY_USERNAME }}/config/scripts/deploy.sh
