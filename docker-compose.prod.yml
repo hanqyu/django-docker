@@ -9,6 +9,8 @@ services:
     command: gunicorn django_docker.wsgi:application --bind 0.0.0.0:8000
     environment:
       DJANGO_SETTINGS_MODULE: django_docker.settings.prod
+    env_file:
+      - .env
     volumes:
       - static:/home/app/web/static
       - media:/home/app/web/media
