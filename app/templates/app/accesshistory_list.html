@@ -1,0 +1,39 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<h1><strong>접속 리스트</strong></h1>
+
+{% if object_list %}
+<table>
+    <thead>
+    <th>id</th>
+    <th>http_host</th>
+    <th>http_referrer</th>
+    <th>http_user_agent</th>
+    <th>remote_addr</th>
+    <th>remote_host</th>
+    <th>remote_user</th>
+    <th>server_name</th>
+    <th>server_port</th>
+    </thead>
+    <tbody>
+    {% for record in object_list %}
+    <tr>
+        <td>{{record.id}}</td>
+        <td>{{record.http_host}}</td>
+        <td>{{record.http_referrer}}</td>
+        <td>{{record.http_useragent}}</td>
+        <td>{{record.remote_addr}}</td>
+        <td>{{record.remote_host}}</td>
+        <td>{{record.remote_user}}</td>
+        <td>{{record.server_name}}</td>
+        <td>{{record.server_port}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No records.</p>
+{% endif %}
+{% endblock %}
