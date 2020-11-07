@@ -14,7 +14,7 @@ services:
     volumes:
       - static:/home/app/web/static
       - media:/home/app/web/media
-    ports:
+    expose:
       - 8000
     entrypoint:
       - sh
@@ -27,7 +27,7 @@ services:
       - static:/home/app/web/static
       - media:/home/app/web/media
     ports:
-      - 80:80
+      - "80:80"
     depends_on:
       - web
 
