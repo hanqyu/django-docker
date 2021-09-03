@@ -55,7 +55,7 @@ DJANGO_SECRET_KEY={django secret key}
 ```
 
 ### Github Action 설정
-1. Github Secrets에 필요한 값 설정
+1. Github - Settings - Secrets에 필요한 값 설정
     - ENV_VARS: .env.prod 전체 복사
     - HOST: 배포할 EC2 서버 public ip 주소
     - KEY: 배포할 EC2 서버로 접근 가능한 ssh key 전문
