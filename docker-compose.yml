@@ -2,20 +2,32 @@ version: '3'
 services:
 
   db:
-    container_name: postgres
-    image: postgres
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: mysql
+    expose:
+      - 3306
     ports:
-      - "5432:5432"
+      - "3307:3306"
     env_file:
       - .env
     volumes:
-      - pgdata:/var/lib/postgresql/data/
+      - dbdata:/var/lib/mysql
 
   web:
     container_name: web
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: mysql
+      MYSQL_PORT: 3306
+      MYSQL_HOST: db
       DJANGO_SETTINGS_MODULE: django_docker.settings.dev
     restart: always
     ports:
@@ -27,7 +39,6 @@ services:
     entrypoint:
       - sh
       - /app/config/docker/entrypoint.sh
-
 volumes:
   app:
-  pgdata:
+  dbdata:
