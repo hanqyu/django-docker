@@ -38,7 +38,7 @@ services:
       - db
     entrypoint:
       - sh
-      - /app/config/docker/entrypoint.sh
+      - ./config/docker/entrypoint.sh
 volumes:
   app:
   dbdata:
