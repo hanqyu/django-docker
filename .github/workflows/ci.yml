@@ -2,7 +2,7 @@ name: CI Migrations Check
 on:
   pull_request:
     branches:
-    - develop
+    - master
 
 jobs:
   migrations-check:
