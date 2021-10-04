@@ -1,0 +1,18 @@
+name: CI Migrations Check
+on:
+  pull_request:
+    branches:
+    - develop
+
+jobs:
+  migrations-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: docker-compose up
+      uses: sudo-bot/action-docker-compose@latest
+      with:
+        cli-args: up
+    - name: check migrations
+      uses: sudo-bot/action-docker-compose@latest
+      with:
+        cli-args: -f docker-compose.yml exec web python manage.py
